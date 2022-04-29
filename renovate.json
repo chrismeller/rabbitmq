@@ -6,7 +6,8 @@
       {
         "description": "Auto-merge low-level stuff, without PR spam.",
         "matchUpdateTypes": ["minor", "patch", "digest"],
-        "automerge": true
+        "automerge": true,
+        "automergeType": "branch"
       }
     ]
   }
