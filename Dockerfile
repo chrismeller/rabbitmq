@@ -1,4 +1,4 @@
-FROM rabbitmq:3.9.16-management-alpine AS base
+FROM rabbitmq:3.10.0-management-alpine AS base
 LABEL maintainer="https://github.com/chrismeller"
 
 ARG TEMP_INSTALL="curl"
