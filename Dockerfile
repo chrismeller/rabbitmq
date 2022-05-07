@@ -10,4 +10,4 @@ RUN curl -L https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releas
 FROM base AS release
 
 COPY --from=build /tmp/rabbitmq_delayed_message_exchange-3.9.0.ez $RABBITMQ_HOME/plugins/rabbitmq_delayed_message_exchange-3.9.0.ez
-RUN rabbitmq-plugins enable --offline rabbitmq_delayed_message_exchange rabbitmq_consistent_hash_exchange rabbitmq_prometheus
+RUN rabbitmq-plugins enable --offline rabbitmq_delayed_message_exchange rabbitmq_consistent_hash_exchange rabbitmq_prometheus rabbitmq_shovel rabbitmq_shovel_management
