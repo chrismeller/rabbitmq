@@ -6,7 +6,7 @@ FROM base AS build
 ARG TEMP_INSTALL="curl"
 RUN apk add --no-cache ${TEMP_INSTALL}
 
-ARG DELAYED_MESSAGE_EXCHANGE_VERSION="3.10.0"
+ARG DELAYED_MESSAGE_EXCHANGE_VERSION="3.10.1"
 RUN curl -L https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/${DELAYED_MESSAGE_EXCHANGE_VERSION}/rabbitmq_delayed_message_exchange-${DELAYED_MESSAGE_EXCHANGE_VERSION}.ez > /tmp/rabbitmq_delayed_message_exchange-${DELAYED_MESSAGE_EXCHANGE_VERSION}.ez
 
 FROM base AS release
