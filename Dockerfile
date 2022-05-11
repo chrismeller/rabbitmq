@@ -3,11 +3,11 @@ LABEL maintainer="https://github.com/chrismeller"
 
 FROM base AS build
 
-ARG TEMP_INSTALL="curl"
+ARG TEMP_INSTALL="curl jq"
 RUN apk add --no-cache ${TEMP_INSTALL}
 
-ARG DELAYED_MESSAGE_EXCHANGE_VERSION="3.10.1"
-RUN curl -L https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/${DELAYED_MESSAGE_EXCHANGE_VERSION}/rabbitmq_delayed_message_exchange-${DELAYED_MESSAGE_EXCHANGE_VERSION}.ez > /tmp/rabbitmq_delayed_message_exchange-${DELAYED_MESSAGE_EXCHANGE_VERSION}.ez
+# download the latest version of the delayed message exchange plugin
+RUN curl -sSL https://api.github.com/repos/rabbitmq/rabbitmq-delayed-message-exchange/releases/latest | jq '.assets[0].browser_download_url' | xargs -n 1 curl -sSLO --output-dir /tmp
 
 FROM base AS release
 
