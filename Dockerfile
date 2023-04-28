@@ -1,4 +1,4 @@
-FROM rabbitmq:3.11.13-management-alpine AS base
+FROM rabbitmq:3.11.14-management-alpine AS base
 LABEL maintainer="https://github.com/chrismeller"
 
 FROM base AS build
